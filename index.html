@@ -504,25 +504,14 @@ function parseBaris(b) {
 }
 function getLogoClub(team){
 
-    const nama = team.toLowerCase();
+    team = team
+        .replace(/\[.*?\]/g,'')
+        .trim()
+        .toLowerCase();
 
-    if(nama.includes('arsenal'))
-        return 'https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg';
-
-    if(nama.includes('paris') || nama.includes('psg'))
-        return 'https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg';
-
-    if(nama.includes('real madrid'))
-        return 'https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg';
-
-    if(nama.includes('barcelona'))
-        return 'https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg';
-
-    if(nama.includes('manchester city'))
-        return 'https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg';
-
-    if(nama.includes('liverpool'))
-        return 'https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg';
+    if(CLUB_LOGOS[team]){
+        return CLUB_LOGOS[team];
+    }
 
     return 'https://cdn-icons-png.flaticon.com/512/53/53283.png';
 }
