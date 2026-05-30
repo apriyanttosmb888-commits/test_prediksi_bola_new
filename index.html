@@ -502,6 +502,21 @@ function parseBaris(b) {
   if (tglMatch) { tanggal = tglMatch[1]; match = sisa.slice(tglMatch[0].length).trim(); }
   return { tanggal, match, skor, url: '' };
 }
+ const CLUB_LOGOS = {
+
+    "arsenal":"https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg",
+
+    "paris saint germain":"https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg",
+
+    "real madrid":"https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
+
+    "barcelona":"https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg",
+
+    "manchester city":"https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg",
+
+    "liverpool":"https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg"
+
+};
 function getLogoClub(team){
 
     team = team
