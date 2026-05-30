@@ -1,0 +1,621 @@
+<html lang="id"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="{&quot;blacklistIframeSrc&quot;:[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//www.google.com/recaptcha/enterprise/anchor&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;,&quot;//www.ukrnafta.com/data/map/&quot;,&quot;//maps.google.com/maps&quot;,&quot;//www.openstreetmap.org/export/embed.html&quot;,&quot;//www.google.com/maps/d/u/3/embed&quot;,&quot;//itm.ebaydesc.com/itmdesc&quot;,&quot;//books.google.com/books&quot;,&quot;//embed.podcasts.apple.com&quot;,&quot;//www.paypal.com/smartchat&quot;,&quot;//www.centurylink.com/assets/includes/common/sfChatiFrame.html&quot;,&quot;//macmillan-prod-gen.ada.support/embed&quot;,&quot;//macmillan-prod-gen.ada.support/chat&quot;,&quot;//ctl-consumer.my.site.com/&quot;],&quot;whitelistDomainsForPostBody&quot;:[&quot;youtube.com&quot;]}" data-dynamic-id="eec2eb40-32d0-460a-953e-a692fcf060e3" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script bis_use="true" type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="eec2eb40-32d0-460a-953e-a692fcf060e3" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/101.js"></script><style id="HighlightThisStyles">.htf409f8de-4a1d-46e8-b970-b687993c35ab {
+background-color: #FFFF66 !important;
+-webkit-print-color-adjust:exact !important;
+font-style: inherit;
+}
+</style><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="{&quot;blacklistIframeSrc&quot;:[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//www.google.com/recaptcha/enterprise/anchor&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;,&quot;//www.ukrnafta.com/data/map/&quot;,&quot;//maps.google.com/maps&quot;,&quot;//www.openstreetmap.org/export/embed.html&quot;,&quot;//www.google.com/maps/d/u/3/embed&quot;,&quot;//itm.ebaydesc.com/itmdesc&quot;,&quot;//books.google.com/books&quot;,&quot;//embed.podcasts.apple.com&quot;,&quot;//www.paypal.com/smartchat&quot;,&quot;//www.centurylink.com/assets/includes/common/sfChatiFrame.html&quot;,&quot;//macmillan-prod-gen.ada.support/embed&quot;,&quot;//macmillan-prod-gen.ada.support/chat&quot;,&quot;//ctl-consumer.my.site.com/&quot;],&quot;whitelistDomainsForPostBody&quot;:[&quot;youtube.com&quot;]}" data-dynamic-id="f665c97e-a511-4629-8056-6e722d8d3050" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generator Tabel Prediksi Bola</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,
+      rgba(0,0,0,0.92) 0%,
+      rgba(25,25,25,0.65) 30%,
+      rgba(255,140,0,0.75) 50%,
+      rgba(30,30,30,0.65) 70%,
+      rgba(0,0,0,0.92) 100%
+    );
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+
+  .input-area {
+    background: rgba(0,0,0,0.75);
+    border: 1px solid rgba(255,215,0,0.35);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 10px 40px rgba(255,215,0,0.15);
+  }
+  .input-area label {
+    display: block;
+    color: #ff8c00;
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .panduan {
+    background: rgba(255,215,0,0.07);
+    border-left: 3px solid #ff8c00;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #ccc;
+    line-height: 1.9;
+    margin-bottom: 12px;
+    border-radius: 4px;
+  }
+  .panduan b { color: #ff8c00; }
+  textarea {
+    width: 100%;
+    height: 280px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.8;
+    resize: vertical;
+  }
+  textarea:focus { outline: none; border-color: #ff8c00; }
+  .btn-row { display: flex; gap: 10px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
+  .btn { padding: 10px 24px; border: none; border-radius: 8px; font-size: 0.85rem; font-weight: bold; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s; }
+  .btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-ok    { background: linear-gradient(90deg, #ff8c00, #ff6b00); color: #000; }
+  .btn-reset { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+  .btn-salin { background: rgba(255,215,0,0.2); color: #ff8c00; border: 1px solid rgba(255,215,0,0.4); }
+  .ok-msg { color: #ff8c00; font-size: 0.82rem; display: none; font-weight: bold; }
+  .ok-msg.tampil { display: inline; }
+
+  /* ====== PREVIEW TABLE ====== */
+  #hasil { margin-top: 4px; }
+
+  .custom-table-watitoto3 {
+    padding: 10px 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .custom-table-watitoto3 table {
+    width: 90%;
+    margin: 0 auto 35px;
+    border-collapse: collapse;
+    border-radius: 16px;
+    overflow: hidden;
+    table-layout: fixed;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(6px);
+    border: 2px solid rgba(255,140,0,0.9); animation: orangeGlow 3s infinite;
+    box-shadow: 0 10px 40px rgba(255,215,0,0.25);
+    transition: 0.3s ease;
+  }
+  .custom-table-watitoto3 table::before{
+content:'';
+position:absolute;
+top:0;
+left:-150%;
+width:50%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+animation:shine 4s infinite;
+}
+.custom-table-watitoto3 table:hover {
+    box-shadow: 0 15px 50px rgba(255,215,0,0.45);
+    transform: translateY(-4px);
+  }
+  /* Header Liga */
+  .custom-table-watitoto3 th[colspan="3"] {
+    background: linear-gradient(90deg, #ff8c00, #ff6b00);
+    color: #000;
+    font-size: 16px;
+    padding: 14px;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(255,215,0,0.9);
+  }
+  /* Header Kolom */
+  .custom-table-watitoto3 th {
+    padding: 10px;
+    background: rgba(20,20,20,0.95);
+    color: #ff8c00;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    border-top: 1px dashed rgba(255,215,0,0.5);
+    border-bottom: 1px dashed rgba(255,215,0,0.5);
+    border-left: 1px dashed rgba(255,215,0,0.5);
+    border-right: 1px dashed rgba(255,215,0,0.5);
+  }
+  /* Cell Data */
+  .custom-table-watitoto3 td {
+    padding: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #ffffff;
+    border-top: 1px dashed rgba(255,215,0,0.25);
+    border-bottom: 1px dashed rgba(255,215,0,0.25);
+    border-left: 1px dashed rgba(255,215,0,0.25);
+    border-right: 1px dashed rgba(255,215,0,0.25);
+  }
+  .custom-table-watitoto3 tr:nth-child(even) { background: rgba(255,255,255,0.05); }
+  .custom-table-watitoto3 tr:hover { background: rgba(255,140,0,0.25); transform:scale(1.01); transition:all .3s ease; }
+  a.tautan { color: inherit; text-decoration: none; }
+  a.tautan:hover { text-decoration: underline; }
+  @media (max-width: 600px) {
+    .custom-table-watitoto3 table { width: 95%; }
+    .custom-table-watitoto3 th, .custom-table-watitoto3 td { padding: 6px; font-size: 10px; }
+  }
+  .kosong { text-align: center; color: rgba(255,215,0,0.4); padding: 40px; font-size: 0.9rem; font-style: italic; }
+
+@keyframes orangeGlow {
+  0% { box-shadow: 0 0 15px rgba(255,140,0,.3); }
+  50% { box-shadow: 0 0 35px rgba(255,140,0,.8); }
+  100% { box-shadow: 0 0 15px rgba(255,140,0,.3); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes shine {
+  100% { left: 200%; }
+}
+.team-match{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.team-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.team-item img{
+    width:34px;
+    height:34px;
+    object-fit:contain;
+    border-radius:50%;
+    background:#fff;
+    padding:2px;
+    box-shadow:0 0 12px rgba(255,140,0,.6);
+}
+
+.vs-bola{
+    color:#ffd700;
+    font-weight:bold;
+    font-size:14px;
+    text-shadow:0 0 10px rgba(255,215,0,.8);
+}
+</style>
+<script bis_use="true" type="text/javascript" charset="utf-8" nonce="" data-dynamic-id="f665c97e-a511-4629-8056-6e722d8d3050" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/101.js"></script><style id="HighlightThisStyles">.htf409f8de-4a1d-46e8-b970-b687993c35ab {
+background-color: #FFFF66 !important;
+-webkit-print-color-adjust:exact !important;
+font-style: inherit;
+}
+</style><style id="sweezy-cursors--styles">
+      body a,
+      body button,
+      body [type='button'],
+      body input[type='reset'],
+      body input[type='submit'],
+      body [role="button"],
+      ::-webkit-search-cancel-button,
+      ::-webkit-search-decoration,
+      ::-webkit-scrollbar-button, 
+      ::-webkit-file-upload-button,
+      body .sweezy-custom-cursor-hover,
+      body button.sweezy-custom-cursor-hover,
+      body a.sweezy-custom-cursor-hover {
+        cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABU5JREFUWEe9l2tsFFUUx//nzsy23RaKaZnStN3dCQWMaCAQCUFNMBalRqNgiR8sIjF+JNQYIdHEKGh8RB4JGu2GIBoiREQRISomysM14iOIPLQFO9N0+8BdGuhj233MXHN3ZrfLuttKNTvJZHf23rvnd/7n3HPuEPJcHo9nFWPsJSKaCaAdwHO6rn+eb/5kf6dcC71e7wpG7JNqWFjCEzhOMkIgyzTNxq6urqOTNZZrXU4ATdNOVXBr0XEMwc0IAxLhrrgbA6BvDMO4pxAAfQ1IVPmlUUCi5L06WoTvTNZhGIYIyf925VPg8jKWUFtdUYDZAM0RFwKJQgJIptpaEgMk2ACDCgKxQgIoptpaFk+HoPmqjMAoFTAERabaWp4AZJZUoTkkITBSSIBiS22tNMcU6GUIRFBABdxcba2yANlJwiAQGCwkQBlXW2u4rYBMaNaBwAAvnAINU7nq99reJwEuWghc5RxAD+d87/Dw8KZwODz4XwtCZh0oqqmpmd7d3d2jaVpvwzSo/pksHYKt3Rb6LaBtiOOHK5ZgOs85X22aphkMBtsARCcDkwTw+XwtRLQJwBTOeSeA6csqyO2fIzm7QKhg1wMoDAcuW3j61ChkUaTs6xqALbquvwLAuhEQ8nq9jxGjPbe5gYZphH1hoC8GNFQS/HPldAiSyegkpIDYfDaG6ikMikw49GcMv/QmQITdnPMdkUikPRQKDf0bEPL5fD+rLiw8OV+CixEuWYS7T8XROEOCf54yZjRlPAWS+exiWPf1EI78EYNIEiKMWpa10zTNDcFgcGQ8EAEQebiKlWyrlxyJCY0/xVFXSvAvdNkhyDbuJGYqQcV4OAHs/z2KqaUMx9qj+PK8CBFE97wXgJkPIgmwsloq2XKzkBtJY5svmega4fAvLs4dgsxwpGCyFNl+cgjbDl8DgT/Z2dm5Ky+Apmlt88pp9qeLXXbnkwlnI8COthj8d5ZkeC+UcBIxW5VsRSSCWcywYGMQgyP8qK7r942nwG4C1px70A13OskIfQlghtuRP9O7tMeiR2QkZmqOo6LQf60/hGNnIn2GYVTnBfB4PE0gtn/7kmKs8DhJl9PgWFEai73dqK4DcQ4wQskN+/rx8beDcV3XXXkBamtrS2RZ7l6gSjcdaCxLhyEzwXJ6mgsyZdz5bHk/hM+ODUYMwyjNCyAGvF7vGyanZw+vmop5laL4CG9zyJ+W2ZE+8zlt3FHExbDyxSB+bY+267o+ZyKAaiK6dHut4v6oqRxgGcmWGef0d3u3JCFTIcj0XiaMMMLcRy+KuvCBYRhrxgUQg5qmvRw3+fNvPVKOh2YX2QayZc6GyZI8vUsYYd/3g9i4tU9sw6bOzs4DEwKIXFAU5Te3jPqvWlTUlGUVoH8YEwrg+pwRcxghrhCWPtWB3r8SXbqui1N0fEIAMaG2tnaRoign6lW56OB61d6WqTtZI0Ro8sieNA5AIby+9wre2RMWJXmtYRi7xy3F2YM+n+8JAO/N97iwp6UKpS5m//F4Cecc3cWcQz8OYd0LQTAJXxiGcf9EDSnne4HP51sPYJtnukw7n6nGrEqnKybD4CRoZkgEoIvh3YP9eO3tyyCGCwDuMAzj6qQAxCLxcipJ0i5wXta8vByPL5+Geo/LbitJj21VrCKGE6eHsXVXCGcujECS6GQ0Gl3Z09MTnsi4GM+pQGphXV3dTFmWtwN4IBqzUKMquHVWMSqEIkQIheM4fS6C/gETisyucc5fNQzjzfG6XzbUuACpyZqmzbEsq4kxtpRzfgsRVThjIQBnOOdHGGMfdnR0iJPRDV1/A/S02zBdMZSwAAAAAElFTkSuQmCC") 6 3, pointer !important;
+      }
+    
+      html,
+      body,
+      body select,
+      body .sweezy-custom-cursor-default-hover {
+        cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABOtJREFUWEe913tsFEUcB/Dv7O3ttZRSykNNc7R3hsQokiCiYjCYEEgqKCH2dRI1EjBCFGMI8Ifx+YftVTQ+ImI0MSYaosT+wR/yUAwRFSWGEq34CJKd7V1bSoGDPu56u7PzM3O7V1oooU8mudxudm9+n/3NzG9uWTQa3UBEOwB0MMZipmn+gRvYWDQa7Y5WhIrPddnoSVO3EOLhRCLx440yKIATq5qhr6uegdhGE6mLIi2Jqi3L2n8jEB7g0VK9/pmbkbggUP0cR9d54QB43DTNPZON8ABrSvX6p28CJOFcn0TtFgtmmy2J6HnLsnZOJiIHqHtkut6w3gPAJfTahLWvJNHyXz+I6CXLst6YLIQHWDVdb1g32wMID5FxCU+92YFjJzMA0VuWZW2bDIQC2LGVJcH6J2blAsOF9y0JQhI27erCd8f7wBg+45xvUFcnEqIA2VhliVG/dqYP8DKQ/xABL+6+gN0/90LTsJdzXgcgO1GIHKBuxTSjITZjKED4mVAYIsT3X8KH3/dCD7BD6XR6TWdnZ99EIDzAsmKjodYH+HMgl4H8sfqWhJ1H02g82I2AhmOO46xqa2s7P16EB3iw2Giomu5lYHDQq86BPScz2P5ND5iGv4UQK5LJZNt4EDlA7dKpRnx1yTAAAEJ6007BcseEfdzB5n09kAB3XXd5IpE4PVaEB3igyIivHAZwVTY8gML8cMbFhm97lUltYpVj3cQ8wOIiI15ZfHUGhhuOfCYE4URK4snDGfRJXBRCrB7LJuYB7plixFdMvQy4VmD19I6/RHP3SJzqIcSOZnHBoTSAKs75gdEMhwdYWGjEl031J6D0x3tQoMGgYY4TGYmaZoGzNmwp5VrLsppGilCA/toFhaH40ilDJhrydUBNvFza/So5+FyVbr98d2YJj510wbOs2zTNktEB5heE4ksKLwcaCOgHv2IVtGcIX7a7aE5JnE4DKUHISoABIKCDc142KkDN7aFQ4+KCoTVgAOE/vZ/63y65qGsWUJsDgAQR/QngDBH1Auh3XffzZDLZMjrAbUaocVFoaAby+0F+0vnLr+msxJZTLhjRVsuy3h5poGvdl5sDNXODocYFhgcg4EinQFPCRVda4tmKAJYU+YXIJTgu4b7fJVIujnPOF00EIFNzq17QOM8AT0tsa87i1/MSOkOGMeaUGZh25K4ANDtfESXePwu808VAJJdZlnV4PAiVgUx1RC+4v5Rh2wlbFbp+AI0A3gVQ5wIffRxlqFRZ8IelRxDuNjVVEvZxzleNF9A1M4hZZ7KEoMZaiKiWc/6P6jQcDhcGg0FrfgHN3ls+aKNyCS+nNHzRq5GU8s7W1ta/xopg5eXlNZqmvQ7gF9u2N7e3t6uKNtAikcirgvDa3rDEwkB+WRLaHWBxKoQA0aec8/VjBlzvh2VlZbMMw2hdXkCFn5Q6lwuSS9iUDuKg0FX1i1iW1XG9voa7nlvM12uRSGSXANv4U2kWFeTviC7QIhgesgthMGw3TVO93o26jQgQDofn6rr+b8xwtYagPfD33XGBubIIGuE9zvkLo44Or3qOqEWj0a81oqrdwX7cS24OsYMMfEAhaKAY5/yrEXV0xU0jBlRUVEQZY0cl2C13wMUlMLRBU8EP+EtRTipAdT5nzpyyQCCwFcA8VaSI6BDnXL26qXfJMbX/AaJ6SE5q1mCzAAAAAElFTkSuQmCC") 1 1, auto !important;
+      }
+    </style></head>
+<body __processed_d0a98cc3-8f07-4731-b2d3-9c2d8e0008f7__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJlbmFibGVkIiwiRkFDRUJPT0siOiJlbmFibGVkIiwiVFdJVFRFUiI6ImVuYWJsZWQiLCJSRURESVQiOiJlbmFibGVkIiwiUElOVEVSRVNUIjoiZW5hYmxlZCIsIklOU1RBR1JBTSI6ImVuYWJsZWQiLCJUSUtUT0siOiJkaXNhYmxlZCIsIkxJTktFRElOIjoiZW5hYmxlZCIsIkNPTkZJRyI6ImRpc2FibGVkIn0sInZlcnNpb24iOiIyLjAuNDciLCJzY29yZSI6MjAwNDcwfV0=" __processed_ff011829-1eee-4394-a5e5-478299fcb68b__="true">
+
+<div class="input-area" bis_skin_checked="1">
+  <label class="sweezy-custom-cursor-default-hover" style="null;cursor: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAABOtJREFUWEe913tsFEUcB/Dv7O3ttZRSykNNc7R3hsQokiCiYjCYEEgqKCH2dRI1EjBCFGMI8Ifx+YftVTQ+ImI0MSYaosT+wR/yUAwRFSWGEq34CJKd7V1bSoGDPu56u7PzM3O7V1oooU8mudxudm9+n/3NzG9uWTQa3UBEOwB0MMZipmn+gRvYWDQa7Y5WhIrPddnoSVO3EOLhRCLx440yKIATq5qhr6uegdhGE6mLIi2Jqi3L2n8jEB7g0VK9/pmbkbggUP0cR9d54QB43DTNPZON8ABrSvX6p28CJOFcn0TtFgtmmy2J6HnLsnZOJiIHqHtkut6w3gPAJfTahLWvJNHyXz+I6CXLst6YLIQHWDVdb1g32wMID5FxCU+92YFjJzMA0VuWZW2bDIQC2LGVJcH6J2blAsOF9y0JQhI27erCd8f7wBg+45xvUFcnEqIA2VhliVG/dqYP8DKQ/xABL+6+gN0/90LTsJdzXgcgO1GIHKBuxTSjITZjKED4mVAYIsT3X8KH3/dCD7BD6XR6TWdnZ99EIDzAsmKjodYH+HMgl4H8sfqWhJ1H02g82I2AhmOO46xqa2s7P16EB3iw2Giomu5lYHDQq86BPScz2P5ND5iGv4UQK5LJZNt4EDlA7dKpRnx1yTAAAEJ6007BcseEfdzB5n09kAB3XXd5IpE4PVaEB3igyIivHAZwVTY8gML8cMbFhm97lUltYpVj3cQ8wOIiI15ZfHUGhhuOfCYE4URK4snDGfRJXBRCrB7LJuYB7plixFdMvQy4VmD19I6/RHP3SJzqIcSOZnHBoTSAKs75gdEMhwdYWGjEl031J6D0x3tQoMGgYY4TGYmaZoGzNmwp5VrLsppGilCA/toFhaH40ilDJhrydUBNvFza/So5+FyVbr98d2YJj510wbOs2zTNktEB5heE4ksKLwcaCOgHv2IVtGcIX7a7aE5JnE4DKUHISoABIKCDc142KkDN7aFQ4+KCoTVgAOE/vZ/63y65qGsWUJsDgAQR/QngDBH1Auh3XffzZDLZMjrAbUaocVFoaAby+0F+0vnLr+msxJZTLhjRVsuy3h5poGvdl5sDNXODocYFhgcg4EinQFPCRVda4tmKAJYU+YXIJTgu4b7fJVIujnPOF00EIFNzq17QOM8AT0tsa87i1/MSOkOGMeaUGZh25K4ANDtfESXePwu808VAJJdZlnV4PAiVgUx1RC+4v5Rh2wlbFbp+AI0A3gVQ5wIffRxlqFRZ8IelRxDuNjVVEvZxzleNF9A1M4hZZ7KEoMZaiKiWc/6P6jQcDhcGg0FrfgHN3ls+aKNyCS+nNHzRq5GU8s7W1ta/xopg5eXlNZqmvQ7gF9u2N7e3t6uKNtAikcirgvDa3rDEwkB+WRLaHWBxKoQA0aec8/VjBlzvh2VlZbMMw2hdXkCFn5Q6lwuSS9iUDuKg0FX1i1iW1XG9voa7nlvM12uRSGSXANv4U2kWFeTviC7QIhgesgthMGw3TVO93o26jQgQDofn6rr+b8xwtYagPfD33XGBubIIGuE9zvkLo44Or3qOqEWj0a81oqrdwX7cS24OsYMMfEAhaKAY5/yrEXV0xU0jBlRUVEQZY0cl2C13wMUlMLRBU8EP+EtRTipAdT5nzpyyQCCwFcA8VaSI6BDnXL26qXfJMbX/AaJ6SE5q1mCzAAAAAElFTkSuQmCC&quot;) 1 1, auto !important;">⚽ Paste Data Prediksi — Liga Apa Saja Bisa</label>
+  <div class="panduan" bis_skin_checked="1">
+    <b>Format 1 (pakai pemisah |):</b><br>
+    [NAMA LIGA]<br>
+    23/02 04:00 WIB | Tim A vs Tim B | 1:1 | https://link (opsional)<br><br>
+    <b>Format 2 (langsung paste tanpa pemisah):</b><br>
+    COLOMBIA PRIMERA B<br>
+    23/02 03:00 WIB Real Cundinamarca vs Orsomarso SC 1 : 1<br><br>
+    ✅ HTML yang di-copy sudah include style <b>custom-table-watitoto3</b> — langsung tempel ke website.
+  </div>
+  <textarea id="dataInput" placeholder="Paste data prediksi di sini...
+
+Contoh:
+[UEFA CHAMPIONS LEAGUE]
+12/03 02:00 WIB | Bayer Leverkusen vs Arsenal | 1:0 | https://example.com/1
+12/03 02:00 WIB | Real Madrid vs Manchester City | 1:1
+
+ENGLISH CHAMPIONSHIP
+12/03 02:45 WIB Norwich City vs Sheffield United 1 : 1
+12/03 02:45 WIB Middlesbrough vs Charlton Athletic 2 : 0"></textarea>
+  <div class="btn-row" bis_skin_checked="1">
+    <button class="btn btn-ok" onclick="buatTabel()">🔄 Generate Tabel</button>
+    <button class="btn btn-reset" onclick="resetSemua()">🗑️ Reset</button>
+    <button class="btn btn-salin" onclick="salinHTML()">📋 Copy HTML</button>
+    <span class="ok-msg" id="pesanOk">✅ HTML tersalin! Siap ditempel ke website.</span>
+  </div>
+</div>
+
+<div id="hasil" bis_skin_checked="1">
+  <div class="kosong" bis_skin_checked="1">Paste data di atas lalu klik "Generate Tabel"</div>
+</div>
+
+<script>
+
+const CSS_OUTPUT = `<style>
+.custom-table-watitoto3 {
+  padding: 50px 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.92) 0%,
+    rgba(25,25,25,0.65) 30%,
+    rgba(255,140,0,0.75) 50%,
+    rgba(30,30,30,0.65) 70%,
+    rgba(0,0,0,0.92) 100%
+  );
+}
+.custom-table-watitoto3 table {
+  width: 90%;
+  margin: 0 auto 35px;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  table-layout: fixed;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(255,140,0,0.9); animation: orangeGlow 3s infinite;
+  box-shadow: 0 10px 40px rgba(255,215,0,0.25);
+  transition: 0.3s ease;
+}
+.custom-table-watitoto3 table::before{
+content:'';
+position:absolute;
+top:0;
+left:-150%;
+width:50%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+animation:shine 4s infinite;
+}
+.custom-table-watitoto3 table:hover {
+  box-shadow: 0 15px 50px rgba(255,215,0,0.45);
+  transform: translateY(-4px);
+}
+.custom-table-watitoto3 th[colspan="3"] {
+  background: linear-gradient(90deg, #ff8c00, #ff6b00);
+  color: #000;
+  font-size: 16px;
+  padding: 14px;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid rgba(255,215,0,0.9);
+}
+.custom-table-watitoto3 th {
+  padding: 10px;
+  background: rgba(20,20,20,0.95);
+  color: #ff8c00;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  border-top: 1px dashed rgba(255,215,0,0.5);
+  border-bottom: 1px dashed rgba(255,215,0,0.5);
+  border-left: 1px dashed rgba(255,215,0,0.5);
+  border-right: 1px dashed rgba(255,215,0,0.5);
+}
+.custom-table-watitoto3 td {
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #ffffff;
+  border-top: 1px dashed rgba(255,215,0,0.25);
+  border-bottom: 1px dashed rgba(255,215,0,0.25);
+  border-left: 1px dashed rgba(255,215,0,0.25);
+  border-right: 1px dashed rgba(255,215,0,0.25);
+}
+.custom-table-watitoto3 tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+.custom-table-watitoto3 tr:hover {
+  background: rgba(255,215,0,0.15);
+  transition: 0.2s ease;
+}
+@media (max-width: 600px) {
+  .custom-table-watitoto3 table { width: 95%; }
+  .custom-table-watitoto3 th,
+  .custom-table-watitoto3 td { padding: 6px; font-size: 10px; }
+}
+
+@keyframes particlesMove {
+  0% {transform: translate(0,0) rotate(0deg);}
+  100% {transform: translate(100px,100px) rotate(360deg);}
+}
+
+.custom-table-watitoto3{
+  position:relative;
+  overflow:hidden;
+}
+
+.custom-table-watitoto3::before{
+  content:'';
+  position:absolute;
+  width:300%;
+  height:300%;
+  top:-100%;
+  left:-100%;
+  background:
+    radial-gradient(circle, rgba(255,140,0,.20) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255,180,0,.15) 1px, transparent 1px);
+  background-size:60px 60px,30px 30px;
+  animation:particlesMove 20s linear infinite;
+  pointer-events:none;
+}
+
+
+
+  to{transform:rotate(360deg);}
+}
+
+/* Efek cahaya menyapu tabel */
+.custom-table-watitoto3 table::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-150%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.45),
+    transparent
+  );
+  animation:lightSweep 3s linear infinite;
+  z-index:1;
+}
+
+@keyframes lightSweep{
+  100%{
+    left:200%;
+  }
+}
+
+
+/* Premium Soft Glow */
+.custom-table-watitoto3 table{
+    position:relative;
+    overflow:hidden;
+    border:2px solid rgba(255,140,0,.75);
+    box-shadow:
+      0 0 10px rgba(255,140,0,.35),
+      0 0 25px rgba(255,140,0,.15);
+}
+
+.custom-table-watitoto3 table:hover{
+    box-shadow:
+      0 0 18px rgba(255,140,0,.55),
+      0 0 40px rgba(255,140,0,.25);
+}
+
+/* Cahaya menyapu lebih elegan */
+.custom-table-watitoto3 table::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-150%;
+    width:35%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+    animation:lightSweep 4.5s linear infinite;
+    z-index:1;
+}
+
+@keyframes lightSweep{
+    100%{
+        left:200%;
+    }
+}
+
+
+/* LED BORDER RUNNING ORANGE */
+.custom-table-watitoto3 table{
+  position:relative !important;
+  overflow:hidden !important;
+}
+
+.custom-table-watitoto3 table::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  padding:2px;
+  background:linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 25%,
+      #ff6b00 40%,
+      #ffd27a 50%,
+      #ff6b00 60%,
+      transparent 75%,
+      transparent 100%
+  );
+  background-size:300% 100%;
+  animation:borderRun 3.5s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  pointer-events:none;
+}
+
+@keyframes borderRun{
+  from{background-position:0% 0;}
+  to{background-position:300% 0;}
+}
+
+</style>`;
+
+function adalahHeaderLiga(b) {
+  if (/^\[.+\]$/.test(b)) return true;
+  const adaTanggal = /\d{2}\/\d{2}/.test(b);
+  const adaVs      = /\bvs\b/i.test(b);
+  const adaSkor    = /\d\s*:\s*\d/.test(b);
+  const adaPipe    = b.includes('|');
+  if (!adaTanggal && !adaVs && !adaSkor && !adaPipe && b.length > 3 && b.length < 70) return true;
+  return false;
+}
+
+function parseBaris(b) {
+  if (b.includes('|')) {
+    const kol = b.split('|').map(k => k.trim());
+    return { tanggal: kol[0]||'', match: kol[1]||'', skor: kol[2]||'', url: kol[3]||'' };
+  }
+  const skorMatch = b.match(/(\d+\s*:\s*\d+)\s*$/);
+  if (!skorMatch) return null;
+  const skor     = skorMatch[1].replace(/\s+/g, ' ').trim();
+  const sisa     = b.slice(0, b.lastIndexOf(skorMatch[0])).trim();
+  const tglMatch = sisa.match(/^(\d{2}\/\d{2}\s+\d{2}:\d{2}\s+\w+)\s+/);
+  let tanggal = '', match = sisa;
+  if (tglMatch) { tanggal = tglMatch[1]; match = sisa.slice(tglMatch[0].length).trim(); }
+  return { tanggal, match, skor, url: '' };
+}
+function getLogoClub(team){
+    return `https://logo.clearbit.com/${team
+        .replace(/[^a-zA-Z0-9]/g,'')
+        .toLowerCase()}.com`;
+}
+
+function renderMatch(match){
+
+    if(!match.includes(' vs ')) return match;
+
+    const tim = match.split(' vs ');
+
+    const home = tim[0].trim();
+    const away = tim[1].trim();
+
+    return `
+    <div class="team-match">
+        <div class="team-item">
+            <img src="${getLogoClub(home)}"
+                 onerror="this.style.display='none'">
+            <span>${home}</span>
+        </div>
+
+        <span class="vs-bola">VS</span>
+
+        <div class="team-item">
+            <span>${away}</span>
+            <img src="${getLogoClub(away)}"
+                 onerror="this.style.display='none'">
+        </div>
+    </div>
+    `;
+}
+function buildTabelLiga(namaLiga, dataLiga) {
+  const nm = namaLiga.replace(/^\[|\]$/g, '');
+  let rows = '';
+  dataLiga.forEach(b => {
+    const p = parseBaris(b);
+    if (!p) return;
+const matchRender = renderMatch(p.match);
+
+const isiMatch = p.url
+ ? `<a href="${p.url}" target="_blank" style="color:inherit;text-decoration:none;">${matchRender}</a>`
+ : matchRender;
+
+const isiSkor = p.url
+ ? `<a href="${p.url}" target="_blank" style="color:inherit;text-decoration:none;">${p.skor}</a>`
+ : p.skor;
+
+rows += `<tr>
+<td>${p.tanggal}</td>
+<td>${isiMatch}</td>
+<td>${isiSkor}</td>
+</tr>\n`;  
+  });
+  if (!rows) return '';
+  return `<!-- ${nm} -->\n<table>\n<tbody>\n<tr>\n<th colspan="3">${nm}</th>\n</tr>\n<tr>\n<th>Tanggal &amp; Waktu</th>\n<th>Pertandingan</th>\n<th>Skor</th>\n</tr>\n${rows}</tbody>\n</table>\n`;
+}
+
+function prosesData(forCopy) {
+  const teks = document.getElementById('dataInput').value.trim();
+  if (!teks) return null;
+  const semuaBaris = teks.split('\n');
+  let htmlTabel = '';
+  let namaLiga  = null;
+  let dataLiga  = [];
+  let adaHasil  = false;
+
+  function flush() {
+    if (!namaLiga || dataLiga.length === 0) return;
+    const blok = buildTabelLiga(namaLiga, dataLiga);
+    if (blok) { htmlTabel += blok; adaHasil = true; }
+    dataLiga = [];
+  }
+
+  semuaBaris.forEach(b => {
+    b = b.trim();
+    if (!b) return;
+    if (adalahHeaderLiga(b)) { flush(); namaLiga = b; }
+    else if (namaLiga) dataLiga.push(b);
+  });
+  flush();
+
+  if (!adaHasil) return null;
+
+  if (forCopy) {
+    return `<div class="custom-table-watitoto3">\n${CSS_OUTPUT}\n${htmlTabel}</div>`;
+  } else {
+    return `<div class="custom-table-watitoto3">${htmlTabel}</div>`;
+  }
+}
+
+function buatTabel() {
+  const html = prosesData(false);
+  document.getElementById('hasil').innerHTML = html
+    || '<div class="kosong">Format tidak dikenali. Pastikan ada nama liga dan data pertandingan.</div>';
+}
+
+function resetSemua() {
+  document.getElementById('dataInput').value = '';
+  document.getElementById('hasil').innerHTML = '<div class="kosong">Paste data di atas lalu klik "Generate Tabel"</div>';
+}
+
+function salinHTML() {
+  const html = prosesData(true);
+  if (!html) { alert('Generate tabel dulu sebelum copy HTML!'); return; }
+  navigator.clipboard.writeText(html).then(() => {
+    const p = document.getElementById('pesanOk');
+    p.classList.add('tampil');
+    setTimeout(() => p.classList.remove('tampil'), 3000);
+  });
+}
+</script>
+
+
+<linkclump-plus><span style="margin: 0px auto; border: 0px dotted red; position: absolute; z-index: 2147483646; visibility: hidden;"></span><span style="z-index: 2147483647; display: inline-block; visibility: hidden; position: absolute; top: 0px; left: 0px; line-height: 16px; font-size: 16px; font-weight: 400; color: black; background-color: transparent; padding: 8px; border-radius: 8px; border: 4px double transparent;"></span></linkclump-plus>
+<linkclump-plus><span style="margin: 0px auto; border: 0px dotted red; position: absolute; z-index: 2147483646; visibility: hidden;"></span><span style="z-index: 2147483647; display: inline-block; visibility: hidden; position: absolute; top: 0px; left: 0px; line-height: 16px; font-size: 16px; font-weight: 400; color: black; background-color: transparent; padding: 8px; border-radius: 8px; border: 4px double transparent;"></span></linkclump-plus></body></html>
